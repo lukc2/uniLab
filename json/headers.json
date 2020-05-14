@@ -1,0 +1,8 @@
+[
+    {"name":"Galeria",
+     "icon":"fas fa-paw"},
+    {"name":"To jest sekcja z angularem!",
+     "icon":"fab fa-angular"},
+    {"name":"Sekcja z tabelką",
+     "icon":"fab fa-angellist"}
+]
