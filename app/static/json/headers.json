@@ -1,0 +1,20 @@
+{ "Home":[
+    {
+      "name": "Cat gallery",
+      "icon": "fas fa-paw"
+    },
+    {
+      "name": "Search photos",
+      "icon": "fa fa-search"
+    }],
+    "Add":[
+    {
+      "name": "Add your cat!",
+      "icon": "fas fa-paw"
+    }],
+    "Account":[
+    {
+      "name": "Your cats",
+      "icon": "bi bi-plus-circle"
+    }]
+  }

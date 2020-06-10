@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>{{ title }}</h1>
+    <p class="lead">{{ content }}</p>
+    <table border='1'>
+        <thead>
+        <td class="pl-50 ml-20 pr-50">Name</td>
+        <td class="nowrap pl-100 pr-50">Date</td>
+        <td class="pl-50 pr-50">User</td>
+        <td class="pl-50 pr-50">File</td>
+        </thead>
+        {% for cat in list %}
+            <tr>
+                <td class="pl-50 pr-50">{{ cat["name"] }}</td>
+                <td class="nowrap pl-50 pr-50">{{ cat["date"] }}</td>
+                <td class="pl-50 pr-50">{{ cat["user"] }}</td>
+                <td class="pl-50 pr-50"><img class="img-thumbnail" src="../img/cats/{{ cat['file'] }}"></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

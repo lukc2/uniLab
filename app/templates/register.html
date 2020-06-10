@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+    <div class="navifix"></div>
+    <div class="container col-sm-4">
+        <h1>{{ title }}</h1>
+        <p class="lead">{{ content }}</p>
+        <form action="/register" method="POST">
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.username) }}
+            {{ wtf.form_field(form.email) }}
+            {{ wtf.form_field(form.password) }}
+            <input class="btn btn-dark " type="submit" value="Sign in"/><br>
+        </form>
+    </div>
+{% endblock %}

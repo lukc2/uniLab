@@ -1,0 +1,148 @@
+.sidebar-heading{
+    margin: 10px;
+
+}
+
+html {
+    height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    position: relative;
+    min-height: 100%;
+    zoom: 80%;
+    font-size:18px;
+    color:#ffffff;
+    background:#000000;
+    font-family: Nunito, Arial, Halvetica, sans-serif;
+    
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Gotu', sans-serif;
+    color:#7314df;
+    font-size:50px;
+}
+.navbar i {
+    color: #ff0000;
+}
+h1 i,h2 i,h3 i,h4 i,h5 i,h6 i{
+color:#3400f1;
+}
+.navbar .btn{
+    background-color: #567fca;
+    margin:5px;
+    border: none;
+
+}
+.navbar-brand img{
+    width: 80px;
+    height: 40px;
+}
+.carousel img{
+    width: 100%!important;
+    height: auto;
+    margin: auto;
+}
+
+#galeria{
+    display: block;
+    position: relative;
+    top: -65px;
+    visibility: hidden;
+}
+
+
+#head-galeria{
+    height: 150px;
+    color:white;
+    text-align:  center;
+    padding-top: 90px;
+
+}
+
+.jumbotron {
+    background-color: #7ba7d4;
+}
+
+.border-right {
+    border-right: 1px solid #dee2e6!important;
+    color: aqua;
+}
+.modal-body{
+    color: black;
+}
+
+td {
+    border: 1px solid black;
+}
+table{
+    background-color:rgba(75, 59, 59, 0.384);
+}
+
+tr:nth-child(even) {
+    background-color:grey;
+}
+
+thead#gora tr {
+    background-color: #ffb3b3;
+    text-align: center;
+}
+
+#kontakt{
+    display: none
+
+}
+.navbar label{
+    color:rgb(0, 0, 0);
+}
+#EmailForm{
+    margin-top: 5px;
+}
+#sendInfo{
+    margin-left: 70%;
+}
+#contactInfo{
+    width:100%;
+}
+#formKontakt{
+    margin-top: 20px;
+    width:280px;
+}
+.figure-caption{
+    font-size: 30px;
+}
+#page-content-wrapper td{
+ padding-left: 2px;
+}
+.fade{
+    width: 100%;
+    height: 100%;
+}
+#imgView{
+    width: 100%;
+    height: min-content;
+    align-self: center;
+
+}
+.wrapper
+{
+    position: relative;
+    overflow: auto;
+    margin: 20px;
+    margin-top: 80px;
+}
+.footerfix{height:5rem;}
+.navifix{height:5rem;}
+
+.footer {
+    color: #0d98d0 !important;
+    bottom:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+}

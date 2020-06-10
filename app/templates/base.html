@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+
+    <title>{{ title }}</title>
+
+
+</head>
+<body class="d-flex flex-column min-vh-100" ng-app="portfolioApp">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#"><img alt="logo" id="logo" src="/img/logo.png"></a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class=" active py-2 d-md-inline-block nav-link" href='/'><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="/#gallery"><i class="fas fa-paw"></i> Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="/add"><i class="fas fa-plus"></i> Add cat</a>
+            </li>
+            <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="/account"><i class="far fa-user-circle"></i> Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="/about"><i class="fas fa-mouse-pointer"></i> About me</a>
+            </li>
+            <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="javascript:showInfo()"><i class="fas fa-info-circle"></i> Contact us</a>
+                <form action="index.html#kontakt" id="kontakt" method="post" onsubmit="return checkForm();">
+                    <fieldset id="formKontakt">
+                        <div class="form-group" id="NameForm">
+                            <label for="contactName">Name</label>
+                            <input class="form-control" id="contactName" onblur="checkName()" placeholder="Name"
+                                   type="text"/>
+                            <p class="d-none alert alert-danger" id="errorName">We need your name!</p>
+                        </div>
+                        <div class="form-group" id="EmailForm">
+                            <label for="contactEmail">Email</label>
+                            <input class="form-control" id="contactEmail" onblur="checkEmail()" placeholder="Email"
+                                   type="text"/>
+                            <p class="d-none alert alert-danger" id="errorMail">Email is necessary!/p>
+                        </div>
+                        <div class="form-group" id="InfoForm">
+                            <label for="contactInfo">Message (max 250 characters)</label>
+                            <textarea class="form-control" id="contactInfo" maxlength="250" onchange="checkInfo()"
+                                      placeholder="Message" rows="4" type="text"></textarea>
+                            <p class="d-none alert alert-danger" id="errorInfo">Message can't be empty</p>
+                        </div>
+                        <input id="sendInfo" type="submit" value="Send"/>
+                    </fieldset>
+                </form>
+            </li>
+        </ul>
+
+    </div>
+        <ul class="navbar-nav ml-auto mr-auto">
+            {% if session['logged_in'] == _missing %}
+                <li class=" nav-item">
+                    <a class=" d-md-inline-block nav-link" href="/login">Log in &nbsp/</a>
+                </li>
+                <li class=" nav-item">
+                    <a class="ml-0 d-md-inline-block nav-link" href="/register">Sign in</a>
+                </li>
+            {% else %}
+                <li class=" nav-item">
+                    <a class="ml-0 d-none d-md-inline-block text-secondary text-center mr-4">
+                        Logged in as:<br>{{session['logged_in']}}
+                    </a>
+                </li>
+                <li class=" nav-item">
+                    <a class="ml-0 d-none d-md-inline-block nav-link" href="/logout">Logout</a>
+                </li>
+            {% endif %}
+        </ul>
+</nav>
+<br>
+<div class="wrapper">
+    
+        <div class="starter-template container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+        
+</div>
+<div class="push"></div>
+<div class="footerfix"></div>
+<footer class="footer">
+    <div class="container-fluid text-center text-md-left">
+        
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5 class="text-uppercase">
+                    <button class="btn btn-primary btn-lg" data-target="#myModal" data-toggle="modal" type="button">
+                        Policy
+                    </button>
+                </h5>
+            </div>
+        
+    </div>
+</footer>
+<div aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Polityka prywatności
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                </h4>
+            </div>
+
+            <div class="modal-body">
+                Korzystając z moich usług, powierzasz mi swoje dane.
+                Zdaje sobie sprawę, że to wielka odpowiedzialność, ale
+                nie bardzo jest z czym się starać, by zapewnić ich bezpieczeństwa,
+                czy umożliwić Ci kontrolę nad nimi.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" type="button">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script crossorigin="anonymous"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script async src="/js/forms.js"></script>
+<script async src="/js/showInfo.js"></script>
+<script src="/js/angular.min.js"></script>
+<script src="/js/controller.js"></script>
+</body>
+</html>
